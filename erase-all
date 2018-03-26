@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo Erasing all iOS Simulators...
+xcrun simctl erase all
