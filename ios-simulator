@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# -d or --device = the iOS device to start.
+# -e or --erase = erase devices before run?
+# -u or --url = the url to load in Safari on boot
+
+POSITIONAL=()
+while [[ $# -gt 0 ]]
+do
+  key="$1"
+
+  case $key in
+    -d|--device)
+    DEVICE="$2"
+    shift # past argument
+    shift # past value
+    ;;
+    -e|--erase)
+    ERASE="$2"
+    shift
+    shift
+    ;;
+    -u|--url)
+    URL="$2"
+    shift
+    ;;
+    *) # unknown option
+    POSITIONAL+=("$1") #save it in an array for later
+    shift
+    ;;
+  esac
+done
+
+set -- "${POSITIONAL[@]}" # restore positional paramaters
+
+echo DEVICE   = "${DEVICE}"
+echo ERASE    = "${ERASE}"
+echo URL      = "${URL}"
+#xcrun instruments -w "iPad Pro (12.9-inch) (2nd generation) (11.2)"
+#sleep 5;
+#xcrun simctl openurl booted https://www.google.com;
