@@ -33,9 +33,27 @@ done
 
 set -- "${POSITIONAL[@]}" # restore positional paramaters
 
-echo DEVICE   = "${DEVICE}"
-echo ERASE    = "${ERASE}"
-echo URL      = "${URL}"
+if [ -z ${DEVICE} ]; then
+  echo "No device specified. Expecting a device using either -d or --device"
+  exit 1
+else
+  if [ ${DEVICE} = "ipad-pro" ]; then
+    iDEVICE="iPad Pro (12.9-inch) (2nd generation) (11.2)"
+  elif [ ${DEVICE} = "ipad" ]; then
+    iDEVICE="iPad (5th Generation) (11.2)"
+  elif [ ${DEVICE} = "iphone-x" ]; then
+    iDEVICE="iPhone X (11.2)"
+  elif [ ${DEVICE} = "iphone-se" ]; then
+    iDEVICE="iPhone SE (10.3.1)"
+  else
+    echo "Unknown device. Did you mean one of these: ipad-pro, ipad, iphone-x, iphone-se?"
+    exit 1
+  fi
+
+  echo ${iDEVICE}
+fi
+
+xcrun instruments -w "${iDEVICE}"
 #xcrun instruments -w "iPad Pro (12.9-inch) (2nd generation) (11.2)"
 #sleep 5;
 #xcrun simctl openurl booted https://www.google.com;
