@@ -38,7 +38,7 @@ if [ -z ${DEVICE} ]; then
   exit 1
 else
   if [ ${DEVICE} = "ipad-pro" ]; then
-    iDEVICE="iPad Pro (12.9-inch) (2nd generation) (11.2)"
+    iDEVICE="iPad Pro (12.9-inch) (2nd generation) (11.3)"
   elif [ ${DEVICE} = "ipad" ]; then
     iDEVICE="iPad (5th Generation) (11.2)"
   elif [ ${DEVICE} = "iphone-x" ]; then
@@ -49,11 +49,12 @@ else
     echo "Unknown device. Did you mean one of these: ipad-pro, ipad, iphone-x, iphone-se?"
     exit 1
   fi
-
-  echo ${iDEVICE}
 fi
 
-xcrun instruments -w "${iDEVICE}"
-#xcrun instruments -w "iPad Pro (12.9-inch) (2nd generation) (11.2)"
-#sleep 5;
-#xcrun simctl openurl booted https://www.google.com;
+if [ ${iDEVICE} ] && [[ -z ${URL} ]]; then
+  xcrun instruments -w "${iDEVICE}"
+else
+  xcrun instruments -w "${iDEVICE}"
+  sleep 5;
+  xcrun simctl openurl booted https://www.google.com;
+fi
