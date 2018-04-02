@@ -40,9 +40,9 @@ else
   if [ ${DEVICE} = "ipad-pro" ]; then
     iDEVICE="iPad Pro (12.9-inch) (2nd generation) (11.3)"
   elif [ ${DEVICE} = "ipad" ]; then
-    iDEVICE="iPad (5th Generation) (11.2)"
+    iDEVICE="iPad (5th Generation) (11.3)"
   elif [ ${DEVICE} = "iphone-x" ]; then
-    iDEVICE="iPhone X (11.2)"
+    iDEVICE="iPhone X (11.3)"
   elif [ ${DEVICE} = "iphone-se" ]; then
     iDEVICE="iPhone SE (10.3.1)"
   else
@@ -51,7 +51,7 @@ else
   fi
 fi
 
-if [ ${iDEVICE} ] && [[ -z ${URL} ]]; then
+if [ "$iDEVICE" ] && [[ -z ${URL} ]]; then
   xcrun instruments -w "${iDEVICE}"
 else
   xcrun instruments -w "${iDEVICE}"
