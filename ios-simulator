@@ -56,5 +56,5 @@ if [ "$iDEVICE" ] && [[ -z ${URL} ]]; then
 else
   xcrun instruments -w "${iDEVICE}"
   sleep 5;
-  xcrun simctl openurl booted https://www.google.com;
+  xcrun simctl openurl booted "${URL}"
 fi
