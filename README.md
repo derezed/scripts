@@ -21,5 +21,3 @@ The script has 3 potential arguments:
   - Ex: `./ios-simulator -d ipad-pro` or `./ios-simulator --device ipad-pro`
 * -u | --url: The URL to open in Safari after the device has finished booting. Can be any URL (local or external).
     - Ex: `./ios-simulator -d ipad-pro -u https://www.google.com`
-* -e | --erase: Erase all devices before run
-  - NOT YET IMPLEMENTED
