@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# -d or --device = the iOS device to start.
-# -e or --erase = erase devices before run?
-# -u or --url = the url to load in Safari on boot
-
 POSITIONAL=()
 while [[ $# -gt 0 ]]
 do
@@ -14,11 +10,6 @@ do
     DEVICE="$2"
     shift # past argument
     shift # past value
-    ;;
-    -e|--erase)
-    ERASE="$2"
-    shift
-    shift
     ;;
     -u|--url)
     URL="$2"
