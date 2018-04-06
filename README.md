@@ -4,7 +4,7 @@ Boot specific iOS devices from command line with or without a URL to be opened i
 
 ## Requirements
 
-* Update to date version of xCode installed (run xCode after installation to insure all other packages are downloaded and setup)
+* Up to date version of xCode installed (run xCode after installation to insure all other packages are downloaded and setup)
 
 ### Usage
 In a terminal window navigate to where the scripts are installed. Once in the proper location run the script using the following command:
