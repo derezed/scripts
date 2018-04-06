@@ -11,7 +11,7 @@ In a terminal window navigate to where the scripts are installed. Once in the pr
 
 `./ios-simulator`
 
-The script has 3 potential arguments:
+The script has 2 potential arguments:
 
 * -d | --device: The device to boot. Currently accepts the following:
   - ipad-pro
